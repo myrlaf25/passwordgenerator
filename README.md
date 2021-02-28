@@ -1,10 +1,16 @@
 # 03 JavaScript: Password Generator
 
-## Your Task
+https://github.com/myrlaf25/passwordgenerator
 
-This week’s homework requires you to modify starter code to create an application that enables employees to generate random passwords based on criteria that they’ve selected. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean and polished, responsive user interface that adapts to multiple screen sizes.
+https://myrlaf25.github.io/passwordgenerator/
 
-The password can include special characters. If you’re unfamiliar with these, see this [list of password special characters](https://www.owasp.org/index.php/Password_special_characters) from the OWASP Foundation.
+
+
+## My Task
+
+I will be modifying started code that was provided in Bootcamp to create an application that will enable the user to generate a random passwords based on criteria that they’ve selected. This app will run in the browser and features dynamically updated HTML and CSS powered by JavaScript code. 
+ 
+The random password will include special characters, numeric characters, lower case characters, and upper case characters. 
 
 ## User Story
 

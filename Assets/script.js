@@ -97,7 +97,7 @@ function getPassword(){
     console.log(lowerCaseCharacters)
     var upperCaseCharacters= confirm ("Do you want your password to contain Upper Case Characters?")
     console.log(upperCaseCharacters)
-    var passwordLength = prompt ("Your password must be at least 8 Characters.")
+    var passwordLength = prompt ("Your password must be between 8 -128 Characters long.")
     console.log(passwordLength)
 
     // condition for the length of password, if password is not longer than 8 characters
