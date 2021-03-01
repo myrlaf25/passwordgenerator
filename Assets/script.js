@@ -1,94 +1,18 @@
 // Array of special characters to be included in password
-var special = [
-  "@",
-  "%",
-  "+",
-  "\\",
-  "/",
-  "'",
-  "!",
-  "#",
-  "$",
-  "^",
-  "?",
-  ":",
-  ",",
-  ")",
-  "(",
-  "}",
-  "{",
-  "]",
-  "[",
-  "~",
-  "-",
-  "_",
-  ".",
-];
-
+var specialChars = "!@#$%^&*()";
+ 
 // Array of numeric characters to be included in password
-var numeric = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var numericChars = "0123456789";
 
 // Array of lowercase characters to be included in password
-var lowerCase = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-];
-
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+  
 // Array of uppercase characters to be included in password
-var upperCase = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+
 var finalPassword = document.getElementById("password");
-var length = 10;
+var length = prompt("Enter a password Length between ....");
 
 function getPassword() {
   var specialCharacters = confirm(
@@ -107,19 +31,19 @@ function getPassword() {
     "Your password will include Upper Case Characters."
   );
   console.log(upperCaseCharacters);
-  var passwordLength = confirm(
+  var passLength = confirm(
     "Your password will be between 8 -128 Characters."
   );
-  console.log(passwordLength);
+  console.log(passLength);
 
   // condition for the length of password, if password is not longer than 8 characters
   var options = [];
   if (specialCharacters === true) {
-    options = options.concat(special);
+    options = options.concat(specialChars);
     console.log(options);
   }
   if (numericCharacters === true) {
-    options = options.concat(numeric);
+    options = options.concat(numericChars);
     console.log(options);
   }
   if (lowerCaseCharacters === true) {
@@ -130,16 +54,17 @@ function getPassword() {
     options = options.concat(upperCase);
     console.log(options);
   }
-  if (passwordLength === true) {
+  if (passLength === true) {
     options = options.concat(length);
     console.log(options);
   }
 }
 
-function getPassword() {
-  var chars =
-    "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+?><,./:{}[]";
-var passwordLength = 8;
+function buildPassword() {
+    //Build chars variable based on desired characters
+var chars = "";
+    
+var passwordLength = length;
 var password = "";
 
 for (var i=0; i<passwordLength; i++){
