@@ -42,7 +42,7 @@ form.addEventListener("submit", (e) => {
   
   function generatePassword(characterAmount, includelowercase,includeuppercase,
     includenumbers,includesymbols) {
-        console.log(LOWERCASE_CHAR_CODES)
+        
   //set the value to lowercasecharcodes and will include the rest with concat
   let charCodes = LOWERCASE_CHAR_CODES;
   if (includeuppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES);
@@ -56,21 +56,14 @@ var passwordCharacters=[]
 passwordCharacters.push(String.fromCharCode(characterCode))
   }
   //can return password characters and will turn into string
-  return passwordCharacters.join()
+  return passwordCharacters.join("")
 }
-;
 
-function generatePassword(characterAmount,includelowercase,includeuppercase,
-  includenumbers,includesymbols) {
-  //this is saying to get the string of information from the ASCII chart for the characters
-  //this helps and eliminates the need to create an array for a for loop
-  String.fromCharCode(65);
-}
 
 //This is the function to generate an array for the program
 
 function arrayFromLowToHigh(low, high) {
-  //For loop will help determine the the variable i is starting at low, is less than or equal
+  //For loop will help determine the the variable is starting at low, is less than or equal
   //to high, and will increase by one till it reaches the high
   var array = [];
   for (let i = low; i <= high; i++) {
@@ -81,7 +74,7 @@ function arrayFromLowToHigh(low, high) {
 }
 
 //This is the function that is telling that the event argument is equal to the var
-//whenthe slider changes the number inside the box changes with it
+//when the slider changes the number inside the box changes with it
 function synccharAmount(e) {
   var value = e.target.value;
   charAmountNum.value = value;

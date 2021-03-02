@@ -30,7 +30,7 @@ body {
   flex-direction: column;
 }
 
-h1 {
+.title {
   text-align: center;
   padding: 20px;
   padding-top: 0px;
