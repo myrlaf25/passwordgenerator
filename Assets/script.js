@@ -1,99 +1,89 @@
-// Array of special characters to be included in password
-var specialChars = "!@#$%^&*()";
- 
-// Array of numeric characters to be included in password
-var numericChars = "0123456789";
+//link the slider with the number inside the box on the right
+//This is saying the var is equal to the  id that is pulling from the HTML
+var charAmountRange = document.getElementById("charAmountRange");
+var charAmountNum = document.getElementById("charAmountNum");
 
-// Array of lowercase characters to be included in password
-var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var includelowercaseElement = document.getElementById("includelowercase");
+var includeuppercaseElement = document.getElementById("includeuppercase");
+var includenumbersElement = document.getElementById("includenumbers");
+var includesymbolsElement = document.getElementById("includesymbols");
+
+var form = document.getElementById("passwordGeneratorForm");
+var passwordDisplay = document.getElementById("passwordDisplay");
+
+var UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90);
+var LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122);
+var NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57);
+var SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47);
+
+//this is an event listener, any time the input changes it is
+//calling the exact same function for the amount and range
+charAmountNum.addEventListener("input", synccharAmount);
+charAmountRange.addEventListener("input", synccharAmount);
+
+//add event listener to listen for submit event, and the function will
+//prevent the form from submitting and refreshing the page(preventing default)
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  //To tell the function the boxes have been checked or not
+  var characterAmount = charAmountNum.value;
+  var includelowercase = includelowercaseElement.checked;
+  var includeuppercase = includeuppercaseElement.checked;
+  var includenumbers = includenumbersElement.checked;
+  var includesymbols = includesymbolsElement.checked;
+  //want to get a password variable from the function where the character amount
+  //will take the info from the labels
+
+  //This is the code to generate password using the ASCII character sheet
+  var password = generatePassword(characterAmount,includelowercase,includeuppercase,
+    includenumbers,includesymbols)
+  passwordDisplay.innerText = password
+})
   
-// Array of uppercase characters to be included in password
-var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  function generatePassword(characterAmount, includelowercase,includeuppercase,
+    includenumbers,includesymbols) {
+        console.log(LOWERCASE_CHAR_CODES)
+  //set the value to lowercasecharcodes and will include the rest with concat
+  let charCodes = LOWERCASE_CHAR_CODES;
+  if (includeuppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES);
+  if (includenumbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES);
+  if (includesymbols) charCodes = charCodes.concat(SYMBOL_CHAR_CODES);
+var passwordCharacters=[]
+  for(let i = 0; i < characterAmount; i++) {
+      //picking a random number between zero and out characterAmount
+      //Math.floor makes it into an interger
+      var characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
+passwordCharacters.push(String.fromCharCode(characterCode))
+  }
+  //can return password characters and will turn into string
+  return passwordCharacters.join()
+}
+;
 
-
-var finalPassword = document.getElementById("password");
-var length = prompt("Enter a password Length between ....");
-
-function getPassword() {
-  var specialCharacters = confirm(
-    "Your password will include Special Characters."
-  );
-  console.log(specialCharacters);
-  var numericCharacters = confirm(
-    "Your password will include Numeric Characters."
-  );
-  console.log(numericCharacters);
-  var lowerCaseCharacters = confirm(
-    "Your password will include Lower Case Characters."
-  );
-  console.log(lowerCaseCharacters);
-  var upperCaseCharacters = confirm(
-    "Your password will include Upper Case Characters."
-  );
-  console.log(upperCaseCharacters);
-  var passLength = confirm(
-    "Your password will be between 8 -128 Characters."
-  );
-  console.log(passLength);
-
-  // condition for the length of password, if password is not longer than 8 characters
-  var options = [];
-  if (specialCharacters === true) {
-    options = options.concat(specialChars);
-    console.log(options);
-  }
-  if (numericCharacters === true) {
-    options = options.concat(numericChars);
-    console.log(options);
-  }
-  if (lowerCaseCharacters === true) {
-    options = options.concat(lowerCase);
-    console.log(options);
-  }
-  if (upperCaseCharacters === true) {
-    options = options.concat(upperCase);
-    console.log(options);
-  }
-  if (passLength === true) {
-    options = options.concat(length);
-    console.log(options);
-  }
+function generatePassword(characterAmount,includelowercase,includeuppercase,
+  includenumbers,includesymbols) {
+  //this is saying to get the string of information from the ASCII chart for the characters
+  //this helps and eliminates the need to create an array for a for loop
+  String.fromCharCode(65);
 }
 
-function buildPassword() {
-    //Build chars variable based on desired characters
-var chars = "";
-    
-var passwordLength = length;
-var password = "";
+//This is the function to generate an array for the program
 
-for (var i=0; i<passwordLength; i++){
-  var randomNumber = Math.floor(Math.random() * chars.length);
-  password += chars.substring(randomNumber, randomNumber+1);
-}document.getElementById("password").value = password
+function arrayFromLowToHigh(low, high) {
+  //For loop will help determine the the variable i is starting at low, is less than or equal
+  //to high, and will increase by one till it reaches the high
+  var array = [];
+  for (let i = low; i <= high; i++) {
+    //this is the push method that adds one or more to the end of an array
+    array.push(i);
+  }
+  return array;
 }
 
-
-//new variable for final password
-//loop thru options array and use .random to pick random indexes from it
-//push random selected character into another array that will need to be defined
-//return the final password .join
-//couple of conditionals to fill in criteria
-
-// var  = {
-//   special: getRandomSpecial,
-//   numeric: getRandomNumeric,
-//   lower: getRandomLower,
-//   upper: getRandomUpper,
-
-// };
-
-// function getRandomSpecial() {
-//   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-// }
-
-// // Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-// // Add event listener to generate button
-generateBtn.addEventListener("click", getPassword);
+//This is the function that is telling that the event argument is equal to the var
+//whenthe slider changes the number inside the box changes with it
+function synccharAmount(e) {
+  var value = e.target.value;
+  charAmountNum.value = value;
+  charAmountRange.value = value;
+}

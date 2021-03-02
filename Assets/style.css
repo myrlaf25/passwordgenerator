@@ -4,76 +4,82 @@
   box-sizing: border-box;
 }
 
-html,
-body,
-.wrapper {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
+  color: black;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .wrapper {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-header {
-  text-align: center;
-  padding: 20px;
-  padding-top: 0px;
-  color: hsl(206, 17%, 28%);
-}
-
-.card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: hsl(0, 97%, 74%);
   border-radius: 5px;
-  border-width: 1px;
+  border: 1px black;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
-  color: hsl(206, 17%, 28%);
+  color: black;
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.card-header::after {
-  content: " ";
-  display: block;
-  width: 100%;
-  background: #e7e9eb;
-  height: 2px;
-}
-
-.card-body {
-  min-height: 100px;
-}
-
-.card-footer {
+h1 {
+  text-align: center;
+  padding: 20px;
+  padding-top: 0px;
+  color: white;
+  background-color: hsl(360, 91%, 36%);
+  border-radius: 10px;
+  border: 1px black;
+  border-style: double;
   text-align: center;
 }
 
-.card-footer::before {
-  content: " ";
-  display: block;
-  width: 100%;
-  background: #e7e9eb;
-  height: 2px;
+.password-display {
+  background-color: white;
+  color: black;
+  padding: 1rem;
+  border: 2px dotted black;
+  height: 2rem;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  word-break: break-all;
+}
+.form {
+  display: grid;
+  grid-template-columns: auto auto;
+  row-gap: 10px;
+  column-gap: 35px;
+  justify-content: center;
+  align-items: center;
 }
 
-.card-footer::after {
-  content: " ";
-  display: block;
-  clear: both;
+label{
+    font-weight: bold;
+}
+
+.CharAmountContainer {
+    display: flex;
+    align-items: center;
+
+}
+
+.number-input {
+    width: 3rem;
 }
 
 .btn {
-  border: none;
+  grid-column: span 2;
+  border: 2px solid black;
   background-color: hsl(360, 91%, 36%);
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
@@ -88,13 +94,9 @@ header {
   cursor: pointer;
 }
 
-button[disabled] {
-  cursor: default;
-  background: #c0c7cf;
-}
-
-.float-right {
-  float: right;
+.btn:hover{
+    background-color: rgb(248, 125, 125);
+    color: black;
 }
 
 #password {
@@ -123,10 +125,6 @@ button[disabled] {
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
     padding: 10px 15px;
-  }
-
-  #password {
-    font-size: 1rem;
   }
 }
 
